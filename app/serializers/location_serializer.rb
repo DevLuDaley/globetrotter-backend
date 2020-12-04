@@ -1,3 +1,5 @@
 class LocationSerializer < ActiveModel::Serializer
-  attributes :id, :city, :state, :country
+  # include FastJsonapi::ObjectSerializer
+    # include JSONAPI::Serializer
+  attributes :city, :state, :country
 end
