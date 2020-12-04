@@ -10,10 +10,11 @@
 Location.create(city: "London", country: "United Kingdom", state: "London")
 Location.create(city: "Harlem", country: "United States", state: "New York")
 
+#USERS
 User.create(name: "Nadia", username: "nadiaf", password_digest: "password", hometown_id: 2)
-User.create(name: "Nicole", username: "Coach", password_digest: "password")    
-User.create(name: "Lu", username: "LH", password_digest: "password")
-User.create(name: "Hazel", username: "Hay-Z", password_digest: "password")
+User.create(name: "Nicole", username: "Coach", password_digest: "password", hometown_id: 2)    
+User.create(name: "Lu", username: "LH", password_digest: "password", hometown_id: 2)
+User.create(name: "Hazel", username: "Hay-Z", password_digest: "password", hometown_id: 2)
 
 User.first.trips.create(start_date: "2021-07-01", end_date: "2021-08-08", location_id: 2)
 User.first.trips.create(start_date: "2021-8-28", end_date: "2021-09-15", location_id: 1)
