@@ -5,14 +5,14 @@ class Api::V1::UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users, methods: :daley, exlude: [:password_digest]
+    render json: @users, methods: :daley#, exlude: [:password_digest]
     #, include:[:trips, :locations, :hometown, :visits], 
     #, include: [:locations, :trips]
   end
 
   # GET /users/1
   def show
-    render json: @user, methods: [:daley], exlude: [:password_digest]
+    render json: @user#, methods: [:daley], exlude: [:password_digest]
     # user_json = UserSerializer.new(@user).serializable_hash.to_json
     # render json: user_json
   end
