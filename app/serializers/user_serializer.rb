@@ -1,5 +1,7 @@
 # class UserSerializer < ActiveModel::Serializer
 class UserSerializer < ActiveModel::Serializer
+  belongs_to :hometown, class_name: "Location", optional: true
+
   attribute :id
   attribute :name
   # attribute :trips
@@ -9,5 +11,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :attractions, through: :trips
   has_many :locations, through: :trips
   has_many :visits, through: :trips
-  belongs_to :hometown, class_name: "Location", optional: true
+
 end

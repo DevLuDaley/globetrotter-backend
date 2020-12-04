@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   belongs_to :hometown, class_name: "Location", optional: true
+  
 # ! uncommented to test serializer
   has_many :trips
   has_many :comments
