@@ -1,20 +1,20 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :create, :update, :destroy]
   # deserializable_resource :user, only: [:create, :update, :delete]
   # GET /users
   def index
     @users = User.all
 
-    render json: @users, methods: :daley#, exlude: [:password_digest]
+    render json: @users #, methods: :daley#, exlude: [:password_digest]
     #, include:[:trips, :locations, :hometown, :visits], 
     #, include: [:locations, :trips]
   end
 
   # GET /users/1
   def show
-    render json: @user#, methods: [:daley], exlude: [:password_digest]
-    # user_json = UserSerializer.new(@user).serializable_hash.to_json
-    # render json: user_json
+    # render json: @user.to_json#, methods: [:daley], exlude: [:password_digest]
+    user_json = UserSerializer.new(@user).serializable_hash.to_json
+    render json: user_json
   end
 
   # POST /users
@@ -32,6 +32,7 @@ class Api::V1::UsersController < ApplicationController
     @user.hometown = @location
     if @user.save
       session[:user_id] = @user.id
+      # render json: @user, status: :created
       render json: UserSerializer.new(@user), status: :created
     else
       resp = {
