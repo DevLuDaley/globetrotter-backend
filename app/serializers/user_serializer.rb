@@ -4,6 +4,7 @@ class UserSerializer < ActiveModel::Serializer
 
   attribute :id
   attribute :name
+  attribute :username
   # attribute :trips
   attribute :hometown
   has_many :trips
