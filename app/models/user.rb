@@ -9,10 +9,10 @@ class User < ApplicationRecord
   has_many :attractions, through: :trips
   has_many :locations, through: :trips
 
-  def daley
-    self.trips.map { |trip| {name: trip.name}}
-    # "hi Lu!"
-  end
+  # def daley
+  #   self.trips.map { |trip| {name: trip.name}}
+  #   # "hi Lu!"
+  # end
 #   validates :name, :username, :hometown, presence: true
 #   validates :username, uniqueness: true
 end
